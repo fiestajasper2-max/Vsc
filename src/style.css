@@ -1,0 +1,24 @@
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#1e1e1e;color:#ccc;font:14px system-ui,sans-serif}
+body{display:flex;flex-direction:column;height:100dvh}
+header{display:flex;align-items:center;gap:6px;padding:6px 8px;background:#323233}
+.logo{font-weight:600;color:#4fc1ff}.sp{flex:1}
+button{background:#0e639c;color:#fff;border:0;border-radius:4px;padding:6px 10px;font-size:13px}
+#menu,#new{background:none;font-size:18px}
+#tabs{display:flex;overflow-x:auto;background:#252526;min-height:34px}
+.tab{padding:8px 10px;white-space:nowrap;border-right:1px solid #1e1e1e;color:#999}
+.tab.on{background:#1e1e1e;color:#fff;border-top:2px solid #4fc1ff}
+.tab b{margin-left:8px;color:#888}
+main{flex:1;display:flex;min-height:0;position:relative}
+#side{width:200px;background:#252526;overflow-y:auto;flex-shrink:0}
+#side.hide{display:none}
+.sh{display:flex;justify-content:space-between;align-items:center;padding:6px 10px;font-size:11px;color:#999}
+.f{display:flex;gap:8px;padding:9px 10px}.f.on{background:#37373d;color:#fff}
+.f span{margin-left:auto;opacity:.6}.f span+span{margin-left:0}
+#ed{flex:1;min-width:0;overflow:hidden}.cm-editor{height:100%}.cm-scroller{font-size:14px}
+#keys{display:flex;overflow-x:auto;background:#2d2d30}
+#keys button{background:#3c3c3c;border-radius:0;min-width:40px;padding:10px}
+footer{background:#007acc;color:#fff;padding:3px 10px;font-size:12px}
+#pv{position:fixed;inset:0;background:#fff;z-index:9;display:flex;flex-direction:column}
+#pv[hidden]{display:none}#pv iframe{flex:1;border:0}
+@media(max-width:600px){#side{position:absolute;z-index:5;height:100%;box-shadow:2px 0 8px #000}}
