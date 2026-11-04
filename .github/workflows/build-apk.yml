@@ -1,7 +1,12 @@
 name: Build APK
 on:
   push:
+    branches: [main]
+  release:
+    types: [published]
   workflow_dispatch:
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,7 +23,14 @@ jobs:
       - run: npx cap sync android
       - run: chmod +x gradlew && ./gradlew assembleDebug
         working-directory: android
+      - run: cp android/app/build/outputs/apk/debug/app-debug.apk PocketCode.apk
       - uses: actions/upload-artifact@v4
         with:
           name: PocketCode-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          path: PocketCode.apk
+      - name: Attach APK to the release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.release.tag_name }}
+          files: PocketCode.apk
