@@ -3,22 +3,33 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
 <title>PocketCode</title></head>
 <body>
-<header>
-  <button id="menu">☰</button><span class="logo">&lt;/&gt; PocketCode</span>
-  <span class="sp"></span>
-  <button id="run">▶</button><button id="open">Open</button><button id="dl">Save</button>
-</header>
-<div id="tabs"></div>
-<main>
+<div id="title"><button id="menu">☰</button><div id="cc">🔍 PocketCode</div><button id="run" title="Run">▶</button></div>
+<div id="body">
+  <nav id="act">
+    <button class="ab on" data-v="ex"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5"/></svg></button>
+    <button class="ab" data-v="se"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M16 16l5 5"/></svg></button>
+    <span class="sp"></span>
+    <button class="ab" data-v="st"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></button>
+  </nav>
   <aside id="side">
-    <div class="sh">EXPLORER <button id="new">＋</button></div>
-    <div id="list"></div>
+    <section id="v-ex"><div class="sh">EXPLORER<span><button id="new" title="New File">＋</button><button id="open" title="Open from device">⇪</button></span></div><div id="list"></div></section>
+    <section id="v-se" hidden><div class="sh">SEARCH</div><input id="q" placeholder="Search in files"><div id="sr"></div></section>
+    <section id="v-st" hidden><div class="sh">SETTINGS</div>
+      <label class="set">Font size <b id="fsv"></b><input type="range" id="fs" min="9" max="28"></label>
+      <label class="set"><input type="checkbox" id="wr"> Word wrap</label>
+      <button id="reset" class="danger">Reset workspace</button></section>
   </aside>
-  <div id="ed"></div>
-</main>
+  <div id="mainc">
+    <div id="tabs"></div><div id="bc"></div>
+    <div id="ed"></div>
+    <div id="welcome" hidden><div class="lg">&lt;/&gt;</div><h2>PocketCode</h2><p>Code anywhere</p>
+      <a id="w1">New File</a><a id="w2">Open File</a><a id="w3">Command Palette</a></div>
+  </div>
+</div>
 <div id="keys"></div>
-<footer id="st"></footer>
-<div id="pv" hidden><button id="pvx">✕ Close</button><iframe sandbox="allow-scripts"></iframe></div>
+<footer id="st"><span id="s1"></span><span class="sp"></span><span id="s2"></span></footer>
+<div id="pal" hidden><div class="box"><input id="pi" placeholder="Go to file… (type &gt; for commands)"><div id="pl"></div></div></div>
+<div id="pv" hidden><div id="pvh">Preview <button id="pvx">✕</button></div><iframe sandbox="allow-scripts"></iframe></div>
 <input type="file" id="file" multiple hidden>
 <script type="module" src="/src/main.js"></script>
 </body></html>
